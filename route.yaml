@@ -1,0 +1,19 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: hello-openshift
+  labels:
+    app: hello-openshift
+    app.kubernetes.io/component: hello-openshift
+    app.kubernetes.io/instance: hello-openshift
+    app.kubernetes.io/part-of: hello-openshift-app
+    app.openshift.io/runtime-version: latest
+spec:
+  host: hello-openshift-szustkowski-argocd-demo.apps.ocp4.lab.fns.de.ocp-pg.viada.de
+  to:
+    kind: Service
+    name: hello-openshift
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None

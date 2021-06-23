@@ -1,0 +1,26 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-openshift
+  labels:
+    app: hello-openshift
+    app.kubernetes.io/component: hello-openshift
+    app.kubernetes.io/instance: hello-openshift
+    app.kubernetes.io/part-of: hello-openshift-app
+    app.openshift.io/runtime-version: latest
+spec:
+  ports:
+    - name: 8080-tcp
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+    - name: 8888-tcp
+      protocol: TCP
+      port: 8888
+      targetPort: 8888
+  selector:
+    app: hello-openshift
+    deploymentconfig: hello-openshift
+  clusterIP: 172.30.24.219
+  type: ClusterIP
+  sessionAffinity: None
