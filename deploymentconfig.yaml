@@ -20,7 +20,7 @@ spec:
     activeDeadlineSeconds: 21600
   triggers:
     - type: ConfigChange
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 10
   test: false
   selector:
